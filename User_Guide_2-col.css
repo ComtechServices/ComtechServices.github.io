@@ -1,0 +1,550 @@
+/* These are the base styles provided by Jorsek and are subject to change as we make improvements, if you don't want these changes you can remove this link to start from scratch. Cheers!*/
+@import url("https://jorsek.github.io/pdfgen.github.io/styles/minimalist/minimalist.css");
+
+body {
+    font-family: "Roboto", Helvetica, Arial;
+    font-size: 10pt;
+    column-count: 2;
+    column-gap: .125in;
+    column-fill: auto;
+}
+
+body.generic {
+    font-family: ITC Korinna Std;
+}
+
+p,
+.p {
+  display: block;
+  padding: 0px;
+  margin: 5px 5px 0px 5px;
+}
+
+/* COVER PAGE */
+
+div.coverPageContainer {
+    page: cover-page;
+    column-span: all;
+}
+
+.coverPage-title, .default .coverPage-title {
+    text-align: left;
+    position: absolute;
+    top: 0in;
+    left: 0in;
+    color: white;
+}
+
+.legacy .coverPage-title, .generic .coverPage-title {
+    text-align: right;
+    position: absolute;
+    top: 0in;
+    right: 0.75in;
+    color: black;
+}
+
+.title-a {
+    font-size: 36pt;
+}
+
+.title-b {
+    font-size: 20pt;
+}
+
+.coverPage-image {
+    position: absolute;
+    vertical-align: bottom;
+    text-align: right;
+    right: 0.75in;
+    bottom: 3in;
+}
+
+.coverPage-instructions {
+    position: absolute;
+    bottom: 1.25in;
+    vertical-align: bottom;
+}
+
+.default .coverPage-instructions {
+    width: 3.25in;
+}
+
+.coverPage-logo {
+    vertical-align: bottom;
+    position: absolute;
+    left: 0in;
+    bottom: 0in;
+}
+
+.coverPage-docinfo {
+    text-align: right;
+    vertical-align: bottom;
+    position: absolute;
+    right: 0in;
+    bottom: 0in;
+    font-size: 11pt;
+}
+
+.coverPage-booknumber {
+    string-set: booknumber content();
+}
+
+.legacy div.coverPageBorderLogo, .coverPageGray {
+    width: 8.5in;
+    height: 11in;
+    position: absolute;
+    top: -0.75in;
+    left: -0.5in;
+    margin-top: -.125in;
+    margin-left: -.125in;
+}
+
+.legacy div.coverPageBorderLogo img, .coverPageGray img {
+    height: 11in;
+    width: 8.5in;
+}
+
+/* TABLE OF CONTENTS */
+/* ================= */
+div.contents {
+    page: table-of-contents;
+    column-span: all;
+    margin-left: 1.5in;
+    page-break-before: right;
+}
+
+.contents ul {
+    list-style: none;
+}
+
+.contents-title {
+    margin-left: -1.5in;
+}
+
+.contents a {
+    text-decoration: none;
+    color: black;
+}
+
+.contents a::after {
+    content: leader(".") target-counter(attr(href), page);
+}
+
+/* ======== */
+/* HEADINGS */
+/* ======== */
+
+h1.coverPageContainer {
+    display:none;
+}
+
+h1.coverPageContainer + h1 {
+    display:none;
+}
+
+.topictitle1, .contents-title {
+    font-size: 24pt;
+    page-break-before: always;
+    column-span: all;
+    border-bottom: 1px gray solid;
+    string-set: current-header content();
+    break-after: avoid;
+}
+
+.contents-title {
+    border-bottom: 0px gray solid;
+}
+
+.topictitle2 {
+    font-size: 16pt;
+    margin: 10px 0px 10px 0px;
+    break-after: avoid;
+    }
+
+.topictitle3 {
+    font-size: 14pt;
+    margin: 10px 0px 10px 5px;
+    break-after: avoid;
+}
+
+.topictitle4 {
+    font-size: 12pt;
+    font-weight: bold;
+    margin: 10px 0px 10px 5px;
+    break-after: avoid;
+}
+
+.topictitle5 {
+    font-size: 12pt;
+    font-weight: normal;
+    font-style: italic;
+    margin: 10px 0px 10px 5px;
+    break-after: avoid;
+}
+
+/* LISTS */
+
+.ol {
+    margin-left:25px;
+}
+
+.ul {
+    list-style: disc;
+    margin-left: 20px;
+}
+
+.ul .ul {
+    list-style: disc;
+    margin-bottom: 0px;
+}
+
+ul.sl {
+    list-style: none;
+    margin-left: 20px;
+}
+
+
+
+/* Set paragraph-like margins for list items. */
+.li,
+.li p,
+.li .p {
+  margin-top: 5px;
+}
+
+/* Set margins between steps. */
+.step { 
+  margin-top: 5px;
+}
+
+/* Set margins between choices and substeps. */
+.substep,
+.choice {
+  margin-top: 5px;
+}
+
+/* Set margins between paragraphs within steps. */
+.step .p {
+    margin: 5px 5px 0px 0px;
+}
+
+
+
+/* TABLES */
+
+.table {
+    border: 1px gray solid;
+    border-collapse: collapse;
+    page-break-inside: auto;
+    padding: 5px;
+    margin: 5px 5px 10px 5px;
+}
+
+
+tr {
+    break-inside: avoid;
+}
+
+.entry {
+    border: 1px gray solid;
+    border-collapse: collapse;
+    padding: 5px;
+    vertical-align: top;
+    text-align: left;
+    break-inside: avoid;
+}
+
+
+.entry .ul {
+    margin: -5px 0px 0px 15px; 
+}
+
+.entry .sl {
+    margin-left:0px;
+}
+
+.entry .p {
+    margin-left:0px;
+}
+
+th {
+  font-weight: bold !important; 
+  color: black !important;
+  background-color: #d3d3d3;
+  padding: 10px;
+  letter-spacing: 0.5px;
+  /* not center aligning in output currently */
+  text-align: center;
+} 
+
+.legacy th {
+    background-color: transparent;
+}
+
+.align-center {
+    text-align: center;
+}
+
+caption {
+    text-align: center;
+    break-before: avoid;
+    margin: 5px 0px 5px 0px;
+    caption-side: bottom;
+}
+
+
+/* INLINE CROSS-REFERENCES */
+
+.xref,
+.link {
+  text-decoration: none;
+  font-style:  italic;
+  color: black;
+}
+
+/* NOTES */
+
+.note {
+    font-weight: bold;
+    margin: 10px 0px 10px 5px;
+    break-inside: avoid;
+}
+
+.p .note {
+    margin: 10px 0px 10px 0px;
+}
+
+.step .note {
+     margin: 5px 5px 0px 0px;
+}
+
+.note__title {
+    text-transform: uppercase;
+}
+
+
+.hazcontainer {
+    margin: 10px 0px 10px 5px;
+}
+
+.li .hazcontainer {
+    margin: 10px 0px 10px 0px;
+}
+
+/* Corrects hazard notes within paragraphs */
+.p .hazcontainer {
+    margin: 10px -5px 10px 0px;
+} 
+
+.hazardtable {
+    border: 1px black solid;
+    border-collapse: collapse; 
+    break-inside: avoid;
+    width: 100%;
+}
+
+.hazardicon {
+    border: 1px black solid;
+    padding: 5px;
+    border-collapse: collapse; 
+    width: 10%;
+    text-align: center;
+}
+
+
+.hazardlabel {
+    border: 1px black solid;
+    padding: 5px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 16pt;
+}
+
+.hazardcontent {
+    border: 1px black solid;
+    border-bottom: none;
+    font-weight: bold;
+    padding: 5px;
+}
+
+.hazardcontent img {
+    /*bottom align with any text in messagepanel */
+}
+
+.hazardoutput{
+    font-size: 8pt;
+    text-align: right;
+    padding: 5px;
+}
+
+/* IMAGES */
+
+/* Prevent large images from overflowing. */
+img {
+    padding: 10px;
+    max-width: 100%;
+}
+
+.imagecenter {
+    text-align: center;
+}
+
+.fig {
+    padding: 10px;
+    /*border: 2px black solid;*/
+    break-inside: avoid;
+    text-align: center;
+    margin: 10px 0px;
+}
+
+.fig ol {
+    text-align: left;
+}
+
+figcaption {
+    text-align: center;
+    break-before: avoid;
+    margin-bottom: 5px;
+}
+
+.figdesc {
+    font-size: 12pt;
+    text-align: left;
+    margin-bottom: 0px;
+}
+
+/* OUTPUTCLASSES */
+
+article.span > .body, article.span > .title, .table.span, .fig.span, .fig.span figcaption {
+    column-span: all;
+}
+
+.table.span {
+    width: 100%;
+}
+
+.title.pagebreak {
+    break-before: page;
+}
+
+/* =============== */
+/* PAGE DEFINTIONS */
+/* =============== */
+
+
+@page {
+  font-family: "Roboto", Helvetica, Arial;
+  size: us-letter;
+  /* marks: crop cross; */
+  margin: 0.75in 0.5in;
+  counter-reset: footnote;
+  @footnotes {
+    margin-top:10px;
+    border-top: solid black thin;
+    border-clip: 200px;
+    padding: 0px 10px 0px 12px;
+  }
+}
+
+/* FIRST PAGE- start on right *********/
+@page:first { 
+    
+}
+/* BLANK PAGE- start on left *********/
+/*@page :blank {
+  @top-center { 
+    content: "This page is intentionally left blank";
+    }*/
+       
+/* LEFT PAGE *********/
+@page:left{
+  @top-left {
+  }
+  @top-right {
+    content: string(current-header);
+    font-size: 8pt;
+    margin-right: 0in;
+    padding: 20px 0px;
+    letter-spacing: 1px;
+  }
+  @bottom-right {
+    font-size: 8pt; 
+    margin-right: 0in;
+    content: string(booknumber);
+    padding: 20px 0px;
+  }
+  @bottom-center {
+    content: counter(page);
+    font-size: 8pt;
+  }
+  @bottom-left {
+    font-size: 8pt; 
+    margin-left: 0in;
+    content: string(footer-copyright);
+    padding: 20px 0px;  
+    letter-spacing: 1px;
+    width: 3in;
+  }
+}
+
+/* RIGHT PAGE *********/
+@page:right{
+  @top-left {
+    
+  }
+  @top-right {
+    content: string(current-header);
+    font-size: 8pt;
+    margin-right: 0in;
+    padding: 20px 0px;
+    letter-spacing: 1px;
+  }
+  @bottom-right {
+    font-size: 8pt; 
+    margin-right: 0in;
+    content: string(booknumber);
+    padding: 20px 0px;
+  }
+  @bottom-center {
+    content: counter(page);
+    font-size: 8pt;
+  }
+  @bottom-left {
+    font-size: 8pt; 
+    margin-left: 0in;
+    content: string(footer-copyright);
+    padding: 20px 0px;  
+    letter-spacing: 1px;
+    width: 3in;
+  }
+}
+
+@page cover-page {
+  font-family: "Roboto", Helvetica, Arial;
+  /* marks: crop cross; */
+  @left-middle {
+  }
+  @bottom-center {
+      content: "";
+  }
+}
+
+@page table-of-contents {
+  font-family: "Roboto", Helvetica, Arial;
+  /* marks: crop cross; */
+  @top-left {
+  }
+  @top-right {
+      content: "";
+  }
+  @left-middle {
+  }
+}
+/* END HEADER AND FOOTER *********/
+
+/* VARIABLES */
+
+.footer-copyright-variable {
+    string-set: footer-copyright content();
+    display: none;
+}
