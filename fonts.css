@@ -1,0 +1,48 @@
+body {
+    font-family: Arial, Arial Unicode MS;
+}
+
+article[lang="th-th"], article[lang="ko-kr"], article[lang="ar-sa"] {
+    font-family: Arial Unicode MS;
+}
+
+article[lang="zh-tw"], article[lang="zh-cn"] {
+    font-family: Microsoft YaHei;
+}
+
+article[lang="bg-bg"], article[lang="ru-ru"], article[lang="uk-ua"] {
+    font-family: Calibri;
+}
+
+article[lang="ja-jp"] {
+    font-family: MSPMincho;
+}
+
+[lang="ar-sa"] {
+    direction: rtl;
+}
+
+@font-face {
+  font-family: Arial Unicode MS;
+  src: url({d4e14910-e765-11ec-ad64-02425d6faea9.ttf});
+}
+
+@font-face {
+  font-family: Microsoft YaHei;
+  src: url({81343c00-e765-11ec-ad64-02425d6faea9.ttf});
+}
+
+@font-face {
+  font-family: Calibri;
+  src: url({11b0e560-e76d-11ec-ad64-02425d6faea9.ttf});
+}
+
+@font-face {
+  font-family: MSPMincho;
+  src: url({75a6f410-e76d-11ec-ad64-02425d6faea9.ttf});
+}
+
+@font-face {
+  font-family: ITCKorinna;
+  src: url({d7672af0-eb26-11ec-ad64-02425d6faea9.otf});
+}
